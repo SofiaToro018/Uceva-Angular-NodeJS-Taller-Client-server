@@ -35,4 +35,26 @@ export interface Order {
 
   /** Fecha de la orden en formato ISO 8601 (YYYY-MM-DD) */
   date: string;
+
+  /** Rango de precio de la orden */
+  priceRange: OrderPriceRange;
 }
+
+ /**
+  * Tipo de rango de precio para una orden.
+  * 
+  * @remarks
+  * Este tipo se utiliza para categorizar las órdenes según su monto total:
+  * - 'Bajo' para órdenes menores a 5000 pesos
+  * - 'Medio' para órdenes entre 5000 y 15000 pesos
+  * - 'Alto' para órdenes mayores a 15000 pesos
+  * 
+  * Se utiliza principalmente para mapear badges de colores en la UI.
+  * 
+  * @example
+  * ```ts
+  * const rango: OrderPriceRange = 'medium';
+  * * ```
+  */
+export type OrderPriceRange = 'low' | 'medium' | 'high';
+  

@@ -14,7 +14,12 @@
         <th>{{ order.id }}</th>
         <td>{{ order.user }}</td>
         <td>{{ order.product }}</td>
-        <td>{{ order.total | currency }}</td>
+        <td>
+					<dsb-badge-atom
+						[text]="(order.total | currency) || ''"
+						[type]="statusMap[order.priceRange]" >
+          </dsb-badge-atom>
+				</td>
         <td>{{ order.date | date }}</td>
       </tr>
     }

@@ -55,4 +55,9 @@ describe('OrdersTableComponent', () => {
       expect(columns[4].nativeElement.textContent.trim()).toBe(orderDate);
     });
   });
+    it('debería mapear cada rango de precio a su BadgeType correcto', () => {
+    expect(component.statusMap['low']).toBe('success');
+    expect(component.statusMap['medium']).toBe('warning');
+    expect(component.statusMap['high']).toBe('danger');
+  });
 });
