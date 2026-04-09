@@ -99,5 +99,25 @@
  *           type: string
  *           format: date-time
  *           example: 2026-04-08T10:30:00Z
+ * @openapi
+ * components:
+ *   schemas:
+ *     Category:
+ *       type: object
+ *       description: Representa una categoría de productos
+ *       required:
+ *         - id
+ *         - name
+ *         - description
+ *       properties:
+ *         id:
+ *           type: number
+ *           example: 1
+ *         name:
+ *           type: string
+ *           example: Lacteos
+ *         description:
+ *           type: string
+ *           example: Productos lácteos
  */
 export {};
