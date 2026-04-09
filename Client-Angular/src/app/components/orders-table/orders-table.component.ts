@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BadgeAtom, BadgeType } from '@brejcha13320/design-system-bootstrap';
 import { Order } from '../../interfaces/ordes.interface';
 /**
  * Componente de tabla de pedidos.
@@ -37,23 +36,9 @@ export class OrdersTableComponent {
    * generalmente `OrdersPagesComponent`. Cada pedido debe cumplir la interfaz `Order`.
    */
   @Input() orders: Order[] = [];
-  /**
-   * Mapeo de los precios de pedidos a tipos de Badge.
-   * @type {Record<string, BadgeType>}
-   * @remarks
-   * Se utiliza para asignar colores de badges a cada pedido según su precio total:
-   * - Total < 3000 → 'success' (verde)
-   * - 3000 ≤ Total < 5000 → 'warning' (amarillo)
-   * - Total ≥ 5000 → 'danger' (rojo)
-   * Esto permite que en la tabla cada pedido tenga un badge visual que indique su rango de precio
-   * de forma clara para el usuario.
-   * 
-   */
-  statusMap: Record<string, BadgeType> = {
-    'low': 'success',
-    'medium': 'warning',
-    'high': 'danger'
-  }
+  
+  
+}
    
 
-}
+

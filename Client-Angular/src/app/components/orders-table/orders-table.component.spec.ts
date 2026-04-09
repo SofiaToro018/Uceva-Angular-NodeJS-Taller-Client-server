@@ -1,5 +1,7 @@
+import { CurrencyPipe, DatePipe } from '@angular/common';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { By } from '@angular/platform-browser';
+import { ORDERS_MOCK } from '../../mocks/orders.mocks';
 import { OrdersTableComponent } from './orders-table.component';
 
 describe('OrdersTableComponent', () => {
@@ -17,7 +19,40 @@ describe('OrdersTableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('debería crear el componente', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('debería renderizar una tabla', () => {
+    const table = fixture.debugElement.query(By.css('table'));
+    expect(table).toBeTruthy();
+  });
+
+  it('debería renderizar una fila por cada orden', () => {
+    component.orders = ORDERS_MOCK;
+    fixture.detectChanges();
+
+    const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
+    expect(rows.length).toBe(component.orders.length);
+  });
+
+  it('debería mostrar los datos de la orden en cada columna', () => {
+    component.orders = ORDERS_MOCK;
+    fixture.detectChanges();
+
+    const rows = fixture.debugElement.queryAll(By.css('tbody tr'));
+
+    rows.forEach((row, index) => {
+      const columns = row.queryAll(By.css('th, td'));
+      const order = component.orders[index];
+      const orderTotal = new CurrencyPipe('en-US').transform(order.total);
+      const orderDate = new DatePipe('en-US').transform(order.date);
+
+      expect(columns[0].nativeElement.textContent.trim()).toBe(String(order.id));
+      expect(columns[1].nativeElement.textContent.trim()).toBe(order.user);
+      expect(columns[2].nativeElement.textContent.trim()).toBe(order.product);
+      expect(columns[3].nativeElement.textContent.trim()).toBe(orderTotal);
+      expect(columns[4].nativeElement.textContent.trim()).toBe(orderDate);
+    });
   });
 });
