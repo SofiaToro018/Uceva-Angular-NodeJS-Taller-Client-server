@@ -1,0 +1,22 @@
+<table class="table table-striped border">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Usuario</th>
+      <th>Producto</th>
+      <th>Total</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (order of orders; track order) {
+      <tr>
+        <th>{{ order.id }}</th>
+        <td>{{ order.user }}</td>
+        <td>{{ order.product }}</td>
+        <td>{{ order.total | currency }}</td>
+        <td>{{ order.date | date }}</td>
+      </tr>
+    }
+  </tbody>
+</table>

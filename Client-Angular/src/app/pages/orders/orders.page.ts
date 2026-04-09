@@ -2,6 +2,9 @@ import { Component, inject } from '@angular/core';
 import { Order } from '../../interfaces/ordes.interface';
 import { State } from '../../interfaces/state.interface';
 import { OrdersService } from '../../services/orders/oders.service';
+import { AlertComponent } from '../../components/alert/alert.component';
+import { OrdersTableComponent } from '../../components/orders-table/orders-table.component';
+
 /**
  * Componente contenedor de órdenes.
  * 
@@ -15,10 +18,10 @@ import { OrdersService } from '../../services/orders/oders.service';
  * 
  */
 @Component({
-  selector: 'app-orders.pages',
-  imports: [],
-  templateUrl: './orders.pages.html',
-  styleUrl: './orders.pages.scss',
+  selector: 'app-orders-page',
+  imports: [AlertComponent, OrdersTableComponent],
+  templateUrl: './orders.page.html',
+  
 })
 export class OrdersPages {
   /**
@@ -47,7 +50,7 @@ export class OrdersPages {
    */ 
   ngOnInit(): void {
     this.state = 'loading';
-    this.ordersService.getAllOrders(5).subscribe({
+    this.ordersService.getAllOrders(10).subscribe({
       next: (orders) => {
         this.orders = orders;
         this.state = 'success';
