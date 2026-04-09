@@ -1,5 +1,5 @@
 import { faker } from '@faker-js/faker';
-import { Order } from '../../../domain/interfaces/orders.interface';
+import { Order, OrderPriceRange } from '../../../domain/interfaces/orders.interface';
 
 /**
  * Servicio encargado de la generación y gestión de órdenes.
@@ -36,16 +36,24 @@ export class OrdersService {
    *
    * @param id Identificador único de la orden
    * @returns Promesa que resuelve una orden generada
+   * 
    */
-  private generateOrder(id: number): Promise<Order> {
-    return Promise.resolve({
-      id,
-      user: faker.person.fullName(),
-      product: faker.commerce.productName(),
-      total: Number(
-        faker.commerce.price({ min: 10, max: 500, dec: 2 })
-      ),
-      date: faker.date.recent(),
-    });
-  }
+private generateOrder(id: number): Promise<Order> {
+  const total = Number(faker.commerce.price({ min: 10, max: 500, dec: 2 }));
+
+  return Promise.resolve({
+    id,
+    user: faker.person.fullName(),
+    product: faker.commerce.productName(),
+    total,
+    date: faker.date.recent(),
+    priceRange: this.getPriceRange(total), 
+  });
+}
+
+private getPriceRange(total: number): OrderPriceRange {
+  if (total < 100) return 'low';
+  if (total <= 300) return 'medium';
+  return 'high';
+ } 
 }

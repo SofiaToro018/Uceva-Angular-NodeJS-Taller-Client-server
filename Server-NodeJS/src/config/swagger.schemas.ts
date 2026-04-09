@@ -82,6 +82,7 @@
  *         - product
  *         - total
  *         - date
+ *         - priceRange
  *       properties:
  *         id:
  *           type: number
@@ -99,6 +100,14 @@
  *           type: string
  *           format: date-time
  *           example: 2026-04-08T10:30:00Z
+ *         priceRange:
+ *           type: string
+ *           enum:
+ *             - low
+ *             - medium
+ *             - high
+ *           example: high
+ *
  * @openapi
  * components:
  *   schemas:
