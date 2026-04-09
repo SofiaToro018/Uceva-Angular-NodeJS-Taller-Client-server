@@ -70,5 +70,34 @@
  *         price:
  *           type: number
  *           example: 4500
+ * @openapi
+ * components:
+ *   schemas:
+ *     Order:
+ *       type: object
+ *       description: Representa una orden del sistema
+ *       required:
+ *         - id
+ *         - user
+ *         - product
+ *         - total
+ *         - date
+ *       properties:
+ *         id:
+ *           type: number
+ *           example: 1
+ *         user:
+ *           type: string
+ *           example: Juan Pérez
+ *         product:
+ *           type: string
+ *           example: Laptop Gamer
+ *         total:
+ *           type: number
+ *           example: 2500
+ *         date:
+ *           type: string
+ *           format: date-time
+ *           example: 2026-04-08T10:30:00Z
  */
 export {};
