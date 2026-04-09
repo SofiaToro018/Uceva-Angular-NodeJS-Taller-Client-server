@@ -119,5 +119,33 @@
  *         description:
  *           type: string
  *           example: Productos lácteos
+ * @openapi
+ * components:
+ *   schemas:
+ *    Payment:
+ *      type: object
+ *      description: Representa un pago en el sistema
+ *      required:
+ *        - id
+ *        - method
+ *        - amount
+ *        - status
+ *      properties:
+ *        id:
+ *         type: number
+ *         example: 1
+ *        method:
+ *         type: string
+ *         example: Tarjeta de crédito
+ *        amount:
+ *         type: number
+ *         example: 2500
+ *        status:
+ *         type: string
+ *         enum:
+ *           - pending
+ *           - completed
+ *           - cancelled
+ *         example: Completado
  */
 export {};
