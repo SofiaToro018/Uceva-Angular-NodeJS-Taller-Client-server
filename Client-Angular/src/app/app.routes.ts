@@ -3,6 +3,7 @@ import { UsersPage } from './pages/users/users.page';
 import { ProductsPage } from './pages/products/products.page';
 import { OrdersPages } from './pages/orders/orders.page';
 import { PaymentsPage } from './pages/payments/payments.pages';
+import { CategoriesPage } from './pages/categories.page/categories.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
@@ -54,6 +55,14 @@ export const routes: Routes = [
    * de mostrar y gestionar el listado de pagos.
    */
   { path: 'payments', component: PaymentsPage },
+  /**
+   * Ruta de categorías.
+   *
+   * @remarks
+   * Renderiza el componente `CategoriesPage`, encargado
+   * de mostrar y gestionar el listado de categorías.
+   */
+  { path: 'categories', component: CategoriesPage },
 
   /**
    * Ruta comodín.
