@@ -3,7 +3,7 @@ import { UsersPage } from './pages/users/users.page';
 import { ProductsPage } from './pages/products/products.page';
 import { OrdersPages } from './pages/orders/orders.page';
 import { PaymentsPage } from './pages/payments/payments.pages';
-import { CategoriesPage } from './pages/categories.page/categories.page';
+import { CategoriesPage } from './pages/categories/categories.page';
 
 /**
  * Definición de las rutas principales de la aplicación.
