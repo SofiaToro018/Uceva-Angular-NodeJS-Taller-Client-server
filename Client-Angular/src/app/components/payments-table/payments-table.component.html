@@ -1,0 +1,24 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Método</th>
+      <th>Monto</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (payment of payments; track payment.id) {
+      <tr>
+        <th>{{ payment.id }}</th>
+        <td>{{ payment.method }}</td>
+        <td>{{ payment.amount | currency }}</td>
+        <td>
+          <dsb-badge-atom [type]="statusMap[payment.status]">
+            {{ payment.status }}
+          </dsb-badge-atom>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
