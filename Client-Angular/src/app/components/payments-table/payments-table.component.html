@@ -14,8 +14,9 @@
         <td>{{ payment.method }}</td>
         <td>{{ payment.amount | currency }}</td>
         <td>
-          <dsb-badge-atom [type]="statusMap[payment.status]">
-            {{ payment.status }}
+          <dsb-badge-atom 
+            [text]="payment.status"
+            [type]="statusMap[payment.status]">
           </dsb-badge-atom>
         </td>
       </tr>
